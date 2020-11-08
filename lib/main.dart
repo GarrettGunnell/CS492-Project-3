@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _githubLink() {
     return Expanded(
       child: InkWell(
-        child: Text("github.com/GarrettGunnell", textAlign: TextAlign.center, style: TextStyle(fontSize: 15.0)),
+        child: Image(image: AssetImage('images/github.png'), height: 25, width: 25),
         onTap: () { launch('https://github.com/GarrettGunnell'); }
       )
     );

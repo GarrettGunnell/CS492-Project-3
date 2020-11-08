@@ -48,6 +48,13 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  Widget _phoneLink() {
+    return InkWell(
+      child: Text("(123) 456-7890", textAlign: TextAlign.center),
+      onTap: () { launch('sms:1234567890'); }
+    );
+  }
+
   Widget _pictureOfMe() {
     return Padding(
       child: Image(
@@ -66,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             _pictureOfMe(),
             Text('Garrett Gunnell', style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold)),
-            Text('(123) 456-7890'),
+            _phoneLink(),
             Padding(
               child: Row(
                 children: <Widget>[

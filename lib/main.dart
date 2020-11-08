@@ -67,6 +67,32 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  Widget _emailLink() {
+    return Expanded(child: Text('gunnellg@oregonstate.edu', textAlign: TextAlign.center));
+  }
+
+  Widget _businessCard() {
+    return Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Padding(child: Image(image: AssetImage('images/me.png'), height: 100, width: 100), padding: const EdgeInsets.all(12.0)),
+            Text('Garrett Gunnell', style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold)),
+            Text('(123) 456-7890'),
+            Padding(
+              child: Row(
+                children: <Widget>[
+                  _githubLink(),
+                  _emailLink(),
+                  ],
+              ),
+              padding: const EdgeInsets.all(8.0)
+            ),
+          ],
+        ),
+      );
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -81,25 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Center(child: Text(widget.title, textAlign: TextAlign.center)),
       ),
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Padding(child: Image(image: AssetImage('images/me.png'), height: 100, width: 100), padding: const EdgeInsets.all(12.0)),
-            Text('Garrett Gunnell', style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold)),
-            Text('(123) 456-7890'),
-            Padding(
-              child: Row(
-                children: <Widget>[
-                  _githubLink(),
-                  Expanded(child: Text('gunnellg@oregonstate.edu', textAlign: TextAlign.center)),
-                  ],
-              ),
-              padding: const EdgeInsets.all(8.0)
-            ),
-          ],
-        ),
-      ),
+      body: _businessCard(),
     );
   }
 }

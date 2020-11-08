@@ -74,6 +74,9 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             _pictureOfMe(),
             Container(
+              padding: const EdgeInsets.all(3.0),
+              margin: const EdgeInsets.only(left: 7.0, right: 7.0, top: 7.0),
+              color: Color(0xfff83b6c),
               child: Column(
                 children: [
                   Text('Garrett Gunnell', style: TextStyle(fontSize: 27.5)),

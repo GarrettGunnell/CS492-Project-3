@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        fontFamily: 'Terminus'
       ),
       home: MyHomePage(title: 'Call Me Maybe'),
     );
@@ -33,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _githubLink() {
     return Expanded(
       child: InkWell(
-        child: Text("github.com/GarrettGunnell", textAlign: TextAlign.center),
+        child: Text("github.com/GarrettGunnell", textAlign: TextAlign.center, style: TextStyle(fontSize: 15.0)),
         onTap: () { launch('https://github.com/GarrettGunnell'); }
       )
     );
@@ -42,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _emailLink() {
     return Expanded(
       child: InkWell(
-        child: Text("gunnellg@oregonstate.edu", textAlign: TextAlign.center),
+        child: Text("gunnellg@oregonstate.edu", textAlign: TextAlign.center, style: TextStyle(fontSize: 15.0)),
         onTap: () { launch('mailto:gunnellg@oregonstate.edu'); }
       )
     );
@@ -50,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _phoneLink() {
     return InkWell(
-      child: Text("(123) 456-7890", textAlign: TextAlign.center),
+      child: Text("(123) 456-7890", textAlign: TextAlign.center, style: TextStyle(fontSize: 15.0)),
       onTap: () { launch('sms:1234567890'); }
     );
   }
@@ -72,17 +73,22 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             _pictureOfMe(),
-            Text('Garrett Gunnell', style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold)),
-            _phoneLink(),
-            Padding(
-              child: Row(
-                children: <Widget>[
-                  _githubLink(),
-                  _emailLink(),
-                  ],
+            Container(
+              child: Column(
+                children: [
+                  Text('Garrett Gunnell', style: TextStyle(fontSize: 27.5)),
+                  _phoneLink(),
+                  Padding(
+                    child: Row(
+                    children: <Widget>[
+                      _githubLink(),
+                      _emailLink(),
+                    ],
+                  ),
+                  padding: const EdgeInsets.all(8.0)
+                )],
               ),
-              padding: const EdgeInsets.all(8.0)
-            ),
+            )
           ],
         ),
       );

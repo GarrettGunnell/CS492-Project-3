@@ -95,16 +95,11 @@ class _MyHomePageState extends State<MyHomePage> {
           // center the children vertically; the main axis here is the vertical
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Image(image: AssetImage('images/me.png'), height: 100, width: 100),
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            Padding(child: Image(image: AssetImage('images/me.png'), height: 100, width: 100), padding: const EdgeInsets.all(12.0)),
+            Text('You have pushed the button this many times:'),
+            Text('$_counter', style: Theme.of(context).textTheme.headline4),
           ],
         ),
       ),

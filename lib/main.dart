@@ -48,12 +48,25 @@ class _MyHomePageState extends State<MyHomePage> {
     return Expanded(child: Text('gunnellg@oregonstate.edu', textAlign: TextAlign.center));
   }
 
+  Widget _pictureOfMe() {
+    return Padding(
+      child: Container(
+          child: Image(
+            image: AssetImage('images/me.png'),
+            height: 200,
+            width: 200
+          ),
+        ),
+      padding: const EdgeInsets.only(top: 8.0)
+    );
+  }
+
   Widget _businessCard() {
     return Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Padding(child: Image(image: AssetImage('images/me.png'), height: 100, width: 100), padding: const EdgeInsets.all(12.0)),
+            _pictureOfMe(),
             Text('Garrett Gunnell', style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold)),
             Text('(123) 456-7890'),
             Padding(

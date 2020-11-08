@@ -93,6 +93,14 @@ class _MyHomePageState extends State<MyHomePage> {
       );
   }
 
+  Widget _resume() {
+    return Icon(Icons.directions_car);
+  }
+
+  Widget _predictor() {
+    return Icon(Icons.directions_bike);
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -119,8 +127,8 @@ class _MyHomePageState extends State<MyHomePage> {
         body: TabBarView(
           children: [
             _businessCard(),
-            Icon(Icons.directions_car),
-            Icon(Icons.directions_car),
+            _resume(),
+            _predictor(),
           ],
         )
       )

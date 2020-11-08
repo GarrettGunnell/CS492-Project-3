@@ -159,7 +159,16 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _predictor() {
-    return Icon(Icons.directions_bike);
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Padding(child: Text("Call Me... Maybe?", style: TextStyle(fontSize: 25)), padding: EdgeInsets.only(bottom: 8.0)),
+          Padding(child: Text("Ask a question... tap for the answer."), padding: EdgeInsets.all(8.0)),
+          Padding(child: Text("Yeah prob"), padding: EdgeInsets.only(top: 8.0))
+        ],
+      ),
+    );
   }
 
   @override

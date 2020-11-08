@@ -45,18 +45,23 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _emailLink() {
-    return Expanded(child: Text('gunnellg@oregonstate.edu', textAlign: TextAlign.center));
+    return Expanded(
+      child: InkWell(
+        child: Text(
+          "gunnellg@oregonstate.edu"
+        ),
+        onTap: () { launch('mailto:gunnellg@oregonstate.edu'); }
+      )
+    );
   }
 
   Widget _pictureOfMe() {
     return Padding(
-      child: Container(
-          child: Image(
-            image: AssetImage('images/me.png'),
-            height: 200,
-            width: 200
-          ),
-        ),
+      child: Image(
+      image: ExactAssetImage('images/me.png'),
+        height: 210,
+        width: 210
+      ),
       padding: const EdgeInsets.only(top: 8.0)
     );
   }
@@ -169,12 +174,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _predictorTapping() {
     return Expanded(
-        child: InkWell(
+      child: InkWell(
         child: Text(
           "Ask a question.. tap for an answer",
           style: TextStyle(color: Colors.black),
         ),
-        onTap: () {updateAnswer(); }
+        onTap: () { updateAnswer(); }
       )
     );
   }

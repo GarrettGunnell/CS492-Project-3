@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(MyApp());
@@ -51,6 +53,20 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  Widget _githubLink() {
+    return Expanded(
+        child: RichText(
+        text: TextSpan(
+          text: "github.com/GarrettGunnell",
+          style: TextStyle(color: Colors.blue, decoration: TextDecoration.underline),          
+          recognizer: TapGestureRecognizer()
+          ..onTap = () async { launch('https://github.com/GarrettGunnell'); }
+        ),
+        textAlign: TextAlign.center,
+      )
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -75,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Padding(
               child: Row(
                 children: <Widget>[
-                  Expanded(child: Text('github.com/GarrettGunnell', textAlign: TextAlign.center)),
+                  _githubLink(),
                   Expanded(child: Text('gunnellg@oregonstate.edu', textAlign: TextAlign.center)),
                   ],
               ),

@@ -101,13 +101,29 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Center(child: Text(widget.title, textAlign: TextAlign.center)),
-      ),
-      body: _businessCard(),
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: Center(child: Text(widget.title, textAlign: TextAlign.center)),
+          bottom: TabBar(
+            tabs: [
+              Tab(icon: Icon(Icons.directions_car)),
+              Tab(icon: Icon(Icons.directions_car)),
+              Tab(icon: Icon(Icons.directions_car)),
+            ],
+          )
+        ),
+        body: TabBarView(
+          children: [
+            _businessCard(),
+            Icon(Icons.directions_car),
+            Icon(Icons.directions_car),
+          ],
+        )
+      )
     );
   }
 }

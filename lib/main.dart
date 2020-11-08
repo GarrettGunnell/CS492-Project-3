@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _githubLink() {
     return Expanded(
       child: InkWell(
-        child: Image(image: AssetImage('images/github.png'), height: 25, width: 25),
+        child: Image(image: AssetImage('images/github.png'), height: 20, width: 20),
         onTap: () { launch('https://github.com/GarrettGunnell'); }
       )
     );
@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _emailLink() {
     return Expanded(
       child: InkWell(
-        child: Text("gunnellg@oregonstate.edu", textAlign: TextAlign.center, style: TextStyle(fontSize: 15.0)),
+        child: Icon(Icons.mail, color: Color(0xffe5b3b2)),
         onTap: () { launch('mailto:gunnellg@oregonstate.edu'); }
       )
     );
@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _phoneLink() {
     return InkWell(
-      child: Text("(123) 456-7890", textAlign: TextAlign.center, style: TextStyle(fontSize: 15.0)),
+      child: Text("(123) 456-7890", textAlign: TextAlign.center, style: TextStyle(fontSize: 17.0, color: Color(0xff99c2ac))),
       onTap: () { launch('sms:1234567890'); }
     );
   }
@@ -76,10 +76,9 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               padding: const EdgeInsets.all(3.0),
               margin: const EdgeInsets.only(left: 7.0, right: 7.0, top: 7.0),
-              color: Color(0xfff83b6c),
               child: Column(
                 children: [
-                  Text('Garrett Gunnell', style: TextStyle(fontSize: 27.5)),
+                  Text('Garrett Gunnell', style: TextStyle(fontSize: 27.5, color: Color(0xff8fb3ab))),
                   _phoneLink(),
                   Padding(
                     child: Row(
@@ -91,6 +90,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   padding: const EdgeInsets.all(8.0)
                 )],
               ),
+              decoration: BoxDecoration(
+                border: Border.all(width: 2.0, color: Colors.black),
+                color: Color(0xff8b7e7c)
+              )
             )
           ],
         ),

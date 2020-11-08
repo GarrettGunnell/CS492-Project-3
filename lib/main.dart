@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'dart:math';
+import 'business_card.dart';
+import 'resume.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,142 +30,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-  Widget _githubLink() {
-    return Expanded(
-      child: InkWell(
-        child: Image(image: AssetImage('images/github.png'), height: 20, width: 20),
-        onTap: () { launch('https://github.com/GarrettGunnell'); }
-      )
-    );
-  }
-
-  Widget _emailLink() {
-    return Expanded(
-      child: InkWell(
-        child: Icon(Icons.mail, color: Color(0xffe5b3b2)),
-        onTap: () { launch('mailto:gunnellg@oregonstate.edu'); }
-      )
-    );
-  }
-
-  Widget _phoneLink() {
-    return InkWell(
-      child: Text("(123) 456-7890", textAlign: TextAlign.center, style: TextStyle(fontSize: 17.0, color: Color(0xff99c2ac))),
-      onTap: () { launch('sms:1234567890'); }
-    );
-  }
-
-  Widget _pictureOfMe() {
-    return Padding(
-      child: Image(
-      image: ExactAssetImage('images/me.png'),
-        height: 210,
-        width: 210
-      ),
-      padding: const EdgeInsets.only(top: 8.0)
-    );
-  }
-
-  Widget _businessCard() {
-    return SingleChildScrollView(
-      child: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            _pictureOfMe(),
-            Container(
-              padding: const EdgeInsets.all(3.0),
-              margin: const EdgeInsets.only(left: 7.0, right: 7.0, top: 7.0),
-              child: Column(
-                children: [
-                  Text('Garrett Gunnell', style: TextStyle(fontSize: 27.5, color: Color(0xff8fb3ab))),
-                  _phoneLink(),
-                  Padding(
-                    child: Row(
-                    children: <Widget>[
-                      _githubLink(),
-                      _emailLink(),
-                    ],
-                  ),
-                  padding: const EdgeInsets.all(8.0)
-                )],
-              ),
-              decoration: BoxDecoration(
-                border: Border.all(width: 2.0, color: Colors.black),
-                color: Color(0xff8b7e7c)
-              )
-            )
-          ],
-        ),
-      ));
-  }
-
-  Widget _resumePersonalInfo() {
-    return Container(
-      child: Align(
-        alignment: Alignment.topLeft,
-        child: Padding(
-          padding: const EdgeInsets.all(9.0),
-          child: Column( 
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Align(child: Text('Garrett Gunnell', style: TextStyle(fontSize: 18.0)), alignment: Alignment.centerLeft),
-              Align(child: Text('gunnellg@oregonstate.edu'), alignment: Alignment.centerLeft),
-              Align(child: Text('github.com/GarrettGunnell'), alignment: Alignment.centerLeft),
-            ]
-          )
-        )
-      )
-    );
-  }
-
-  Widget _resumeWorkExperience() {
-    return Padding(
-      padding: const EdgeInsets.all(9.0),
-      child: Container(
-        child: Align(
-          alignment: Alignment.center,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Align(child: Text('Waiter', style: TextStyle(fontWeight: FontWeight.bold)), alignment: Alignment.centerLeft),
-              Row(
-                children: <Widget>[
-                  Expanded(child: Text('Okawa')),
-                  Expanded(child: Text('2016 - 2020', textAlign: TextAlign.center)),
-                  Expanded(child: Text('Bend, OR', textAlign: TextAlign.right))
-                ]
-              ),
-              Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')
-            ],
-          )
-        )
-      )
-    );
-  }
-
-  Widget _resume() {
-    return Center(
-      child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                _resumePersonalInfo(),
-                _resumeWorkExperience(),
-                _resumeWorkExperience(),
-                _resumeWorkExperience(),
-                _resumeWorkExperience(),
-                _resumeWorkExperience(),
-                _resumeWorkExperience(),
-                _resumeWorkExperience(),
-                _resumeWorkExperience(),
-              ]
-            )
-          ),
-    );
-  }
-
   int _answerKey = 0;
   var _answers = [
     "Nope",
@@ -178,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 
 
-  void updateAnswer() {
+  void _updateAnswer() {
     setState(() {
       _answerKey = new Random().nextInt(8);
     });
@@ -191,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
           "Ask a question.. tap for an answer",
           style: TextStyle(color: Colors.black),
         ),
-        onTap: () { updateAnswer(); }
+        onTap: _updateAnswer
       )
     );
   }
@@ -230,8 +95,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: TabBarView(
           children: [
-            _businessCard(),
-            _resume(),
+            businessCard(),
+            resume(),
             _predictor(),
           ],
         )

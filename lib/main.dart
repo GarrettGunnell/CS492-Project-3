@@ -32,14 +32,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _githubLink() {
     return Expanded(
-        child: RichText(
-        text: TextSpan(
-          text: "github.com/GarrettGunnell",
-          style: TextStyle(color: Colors.blue, decoration: TextDecoration.underline),          
-          recognizer: TapGestureRecognizer()
-          ..onTap = () async { launch('https://github.com/GarrettGunnell'); }
-        ),
-        textAlign: TextAlign.center,
+      child: InkWell(
+        child: Text("github.com/GarrettGunnell", textAlign: TextAlign.center),
+        onTap: () { launch('https://github.com/GarrettGunnell'); }
       )
     );
   }
@@ -47,9 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _emailLink() {
     return Expanded(
       child: InkWell(
-        child: Text(
-          "gunnellg@oregonstate.edu"
-        ),
+        child: Text("gunnellg@oregonstate.edu", textAlign: TextAlign.center),
         onTap: () { launch('mailto:gunnellg@oregonstate.edu'); }
       )
     );

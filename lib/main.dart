@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:math';
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: 'Terminus'
       ),
-      home: MyHomePage(title: 'Call Me Maybe'),
+      home: MyHomePage(title: 'I, Monster'),
     );
   }
 }
@@ -68,7 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _businessCard() {
-    return Center(
+    return SingleChildScrollView(
+      child: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
@@ -97,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ],
         ),
-      );
+      ));
   }
 
   Widget _resumePersonalInfo() {
@@ -109,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column( 
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Align(child: Text('Garrett Gunnell'), alignment: Alignment.centerLeft),
+              Align(child: Text('Garrett Gunnell', style: TextStyle(fontSize: 18.0)), alignment: Alignment.centerLeft),
               Align(child: Text('gunnellg@oregonstate.edu'), alignment: Alignment.centerLeft),
               Align(child: Text('github.com/GarrettGunnell'), alignment: Alignment.centerLeft),
             ]
@@ -203,7 +203,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           Padding(child: Text("Call Me... Maybe?", style: TextStyle(fontSize: 25)), padding: EdgeInsets.only(bottom: 8.0)),
           Padding(child: _predictorTapping(), padding: EdgeInsets.all(8.0)),
-          Padding(child: Text("${_answers[_answerKey]}"), padding: EdgeInsets.only(top: 8.0))
+          Padding(child: Text("${_answers[_answerKey]}", style: TextStyle(fontSize: 20.0)), padding: EdgeInsets.only(top: 8.0))
         ],
       ),
     );
@@ -218,7 +218,7 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           shadowColor: Color(0xfff83b6c),
           backgroundColor: Color(0xffe4b5b5),
-          title: Center(child: Text(widget.title, textAlign: TextAlign.center)),
+          title: Center(child: Text(widget.title, textAlign: TextAlign.center, style: TextStyle(color: Colors.black))),
           bottom: TabBar(
             indicatorColor: Color(0xfff83667),
             tabs: [

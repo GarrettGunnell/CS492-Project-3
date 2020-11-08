@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'dart:math';
 
 void main() {
   runApp(MyApp());
@@ -158,14 +159,45 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  int _answerKey = 0;
+  var _answers = [
+    "Nope",
+    "Definitely not",
+    "Most likely no",
+    "Probably not",
+    "No, sorry",
+    "Maybe next time",
+    "Unfortunately not",
+    "No."
+  ];
+
+
+  void updateAnswer() {
+    setState(() {
+      _answerKey = new Random().nextInt(8);
+    });
+  }
+
+  Widget _predictorTapping() {
+    return Expanded(
+        child: InkWell(
+        child: Text(
+          "Ask a question.. tap for an answer",
+          style: TextStyle(color: Colors.black),
+        ),
+        onTap: () {updateAnswer(); }
+      )
+    );
+  }
+
   Widget _predictor() {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Padding(child: Text("Call Me... Maybe?", style: TextStyle(fontSize: 25)), padding: EdgeInsets.only(bottom: 8.0)),
-          Padding(child: Text("Ask a question... tap for the answer."), padding: EdgeInsets.all(8.0)),
-          Padding(child: Text("Yeah prob"), padding: EdgeInsets.only(top: 8.0))
+          Padding(child: _predictorTapping(), padding: EdgeInsets.all(8.0)),
+          Padding(child: Text("${_answers[_answerKey]}"), padding: EdgeInsets.only(top: 8.0))
         ],
       ),
     );

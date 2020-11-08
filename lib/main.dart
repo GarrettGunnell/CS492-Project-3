@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Call Me Maybe'),
@@ -185,13 +184,17 @@ class _MyHomePageState extends State<MyHomePage> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
+        backgroundColor: Color(0xffc5dad6),
         appBar: AppBar(
+          shadowColor: Color(0xfff83b6c),
+          backgroundColor: Color(0xffe4b5b5),
           title: Center(child: Text(widget.title, textAlign: TextAlign.center)),
           bottom: TabBar(
+            indicatorColor: Color(0xfff83667),
             tabs: [
-              Tab(icon: Icon(Icons.directions_car)),
-              Tab(icon: Icon(Icons.directions_car)),
-              Tab(icon: Icon(Icons.directions_car)),
+              Tab(icon: Icon(Icons.account_circle, color: Color(0xfff83667))),
+              Tab(icon: Icon(Icons.assignment, color: Color(0xfff83667))),
+              Tab(icon: Icon(Icons.visibility, color: Color(0xfff83667))),
             ],
           )
         ),
